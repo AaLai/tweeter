@@ -1,0 +1,30 @@
+.new-tweet {
+    background-color : lightgrey;
+    margin : 0 2em 20px;
+    padding : 5px 10px;
+    border-radius : 10px;
+    overflow: overlay;
+    float: center;
+}
+
+.new-tweet input {
+    display : inline-block;
+    float : left;
+}
+
+.new-tweet h2 {
+    border-bottom: 1px solid black;
+}
+
+.new-tweet .counter {
+    display : inline-block;
+    float : right;
+}
+
+.new-tweet textarea {
+    width: 100%
+}
+
+.new-tweet .red {
+    color: red;
+}
