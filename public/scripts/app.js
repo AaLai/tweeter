@@ -6,24 +6,33 @@
 $(document).ready(function() {
 
   const createTweetElement = function (data) {
-    let $test = `<article class='tweet'>
-      <header>
-      <img class="avatar" src="${data.user.avatars.small}">
-      <h2>${data.user.name}</h2>
-      <span class="handle">${data.user.handle}</span>
-      </header>
-      <span class="contents"> ${data.content.text}</span>
-      <footer class="age"> ${data.created_at}</footer>
+    let currentDate = new Date().getTime();
+    let daysPast = Math.floor((currentDate - data.created_at) /1000 /60 /60 /24);
+    const yearChanger = (date) => {
+      if (date < 365) {
+        return `${date} days ago`;
+      } else {
+        return `${Math.floor(date / 365)} years ago`;
+      }
+    }
+
+    let $test =
+      `<article class='tweet'>
+        <header>
+          <img class="avatar" src="${data.user.avatars.small}">
+          <h2>${data.user.name}</h2>
+          <span class="handle">${data.user.handle}</span>
+        </header>
+          <span class="contents"> ${data.content.text}</span>
+        <footer class="age"> ${yearChanger(daysPast)} </footer>
       </article>`;
-
-    return $test
+    return $test;
   }
-
 
   const renderTweet = function (tweetArr) {
     tweetArr.forEach((element) => {
       $('.old-tweet').append(createTweetElement(element));
-    })
+    });
   }
 
   renderTweet(data);
