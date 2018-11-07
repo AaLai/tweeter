@@ -5,6 +5,12 @@
  */
 $(document).ready(function() {
 
+  function escape(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
   $(function() {
     var $button = $('.new-tweet input');
     $button.on('click', function () {
@@ -22,16 +28,20 @@ $(document).ready(function() {
         data : $('#newTweet').serialize()
       })
       .then(function (getTweet) {
-        loadTweets();
+        loadTweets('y');
       })
       // });
     }
     });
   });
 
-  const loadTweets = function () {
+  const loadTweets = function (last) {
     $.getJSON('/tweets/', function(data) {
-      $('section.old-tweet').append(renderTweet(data));
+      if (last === 'y') {
+        $('section.old-tweet').prepend(createTweetElement(data[data.length-1]));
+      } else {
+        $('section.old-tweet').append(renderTweet(data));
+      }
     })
   }
 
@@ -52,7 +62,7 @@ $(document).ready(function() {
           <h2>${data.user.name}</h2>
           <span class="handle">${data.user.handle}</span>
         </header>
-          <span class="contents"> ${data.content.text}</span>
+          <span class="contents"> ${escape(data.content.text)}</span>
         <footer class="age"> ${yearChanger(daysPast)} </footer>
       </article>`;
     return $test;
