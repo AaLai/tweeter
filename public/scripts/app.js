@@ -9,6 +9,11 @@ $(document).ready(function() {
     var $button = $('.new-tweet input');
     $button.on('click', function () {
       event.preventDefault();
+      if ($(this).siblings('.counter').text() == 140) {
+        alert("Please enter a tweet!")
+      } else if ($(this).siblings('.counter').text() < 0) {
+        alert("Over character limit!")
+      } else {
       // console.log($('#newTweet'));
       // console.log('Button clicked, performing ajax call...');
       $.ajax({
@@ -16,17 +21,18 @@ $(document).ready(function() {
         url : "/tweets/",
         data : $('#newTweet').serialize()
       })
-      .then(function () {
+      .then(function (getTweet) {
         loadTweets();
       })
       // });
+    }
     });
   });
 
   const loadTweets = function () {
     $.getJSON('/tweets/', function(data) {
       $('section.old-tweet').append(renderTweet(data));
-    });
+    })
   }
 
   const createTweetElement = function (data) {
