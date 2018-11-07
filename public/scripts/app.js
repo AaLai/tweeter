@@ -5,6 +5,26 @@
  */
 $(document).ready(function() {
 
+  $(function() {
+    var $button = $('.new-tweet input');
+    $button.on('click', function () {
+      event.preventDefault();
+      // console.log($('#newTweet'));
+      // console.log('Button clicked, performing ajax call...');
+      $.ajax({
+        type : "POST",
+        url : "/tweets/",
+        data : $('#newTweet').serialize()
+      })
+      // .then(function (morePostsHtml) {
+      //   console.log('Success: ', morePostsHtml);
+      //   $button.replaceWith(morePostsHtml);
+      // });
+    });
+  });
+
+
+
   const createTweetElement = function (data) {
     let currentDate = new Date().getTime();
     let daysPast = Math.floor((currentDate - data.created_at) /1000 /60 /60 /24);
@@ -37,6 +57,7 @@ $(document).ready(function() {
 
   renderTweet(data);
   // $('.old-tweet').append($tweet);
+
 
 
 
