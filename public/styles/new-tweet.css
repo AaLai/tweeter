@@ -5,6 +5,7 @@
     border-radius : 10px;
     overflow: overlay;
     float: center;
+    display : none;
 }
 
 .new-tweet input {

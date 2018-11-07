@@ -35,6 +35,14 @@ $(document).ready(function() {
     });
   });
 
+  $(function() {
+    var $compose = $('#nav-bar .composer');
+      $compose.on('click', function () {
+        $('.new-tweet').slideToggle('fast');
+        $('.new-tweet textarea').focus();
+      })
+  })
+
   const loadTweets = function (last) {
     $.getJSON('/tweets/', function(data) {
       if (last === 'y') {
