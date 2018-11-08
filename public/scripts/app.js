@@ -15,10 +15,13 @@ $(document).ready(function() {
     var $button = $('.new-tweet input');
     $button.on('click', function () {
       event.preventDefault();
+      $(this).parent().siblings('.error').hide(500);
       if ($(this).siblings('.counter').text() == 140) {
-        alert("Please enter a tweet!")
+        $(this).parent().siblings('.error').text("Cannot submit empty tweet")
+        $(this).parent().siblings('.error').show(500);
       } else if ($(this).siblings('.counter').text() < 0) {
-        alert("Over character limit!")
+        $(this).parent().siblings('.error').text("Message is too long!")
+        $(this).parent().siblings('.error').show(500)
       } else {
       // console.log($('#newTweet'));
       // console.log('Button clicked, performing ajax call...');

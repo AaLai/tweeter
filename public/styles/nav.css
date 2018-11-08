@@ -21,7 +21,7 @@
   margin : 0 10px 0 0;
 }
 
-#nav-bar .Composer {
+#nav-bar .composer {
   float : right;
   background-color : cornsilk;
   border-radius : 5px;
@@ -30,7 +30,7 @@
   border : 1px solid black;
 }
 
-#nav-bar .Composer:hover {
+#nav-bar .composer:hover {
   float : right;
   background-color : cornsilk;
   border-radius : 5px;

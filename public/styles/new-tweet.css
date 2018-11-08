@@ -29,3 +29,13 @@
 .new-tweet .red {
     color: red;
 }
+
+.new-tweet .error {
+    background-color : firebrick;
+    color : white;
+    font-size : 1.3rem;
+    padding-left : 10px;
+    padding-right : 10px;
+    margin-left : 10px;
+    display : none;
+}
