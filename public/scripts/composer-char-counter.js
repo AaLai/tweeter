@@ -1,9 +1,8 @@
-
+// --- Script for character counter
 
 $(document).ready(function() {
 
-  $(".new-tweet textarea").on('keyup', function(event)
-  {
+  $(".new-tweet textarea").on('keyup', function(event) {
     var value = 140 - $(this).val().length;
     $(this).siblings('.counter').text(value);
     if (value < 0) {

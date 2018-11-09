@@ -7,6 +7,8 @@ const tweetsRoutes  = express.Router();
 
 module.exports = function(DataHelpers) {
 
+// --- Tweet retrieval and creation
+
   tweetsRoutes.get("/", function(req, res) {
     DataHelpers.getTweets((err, tweets) => {
       if (err) {

@@ -5,36 +5,40 @@
  */
 $(document).ready(function() {
 
+// -- escape for possible script injection
+
   function escape(str) {
     var div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   }
 
-  const timeChanger = (date) => {
-    if (date <= 1) {
-      return `${date} minute ago`;
-    } else if (date < 60) {
-      return `${date} minutes ago`;
-    } else if (date < 1440) {
-      return `${Math.floor(date / 60)} hours ago`;
-    } else if (date < (360 * 24)) {
-      return `${Math.floor(date / 60 / 24)} days ago`;
+  const timeChanger = (min) => {
+    if (min <= 1) {
+      return `${min} minute ago`;
+    } else if (min < 60) {
+      return `${min} minutes ago`;
+    } else if (min < 1440) {
+      return `${Math.floor(min / 60)} hours ago`;
+    } else if (min < (360 * 24)) {
+      return `${Math.floor(min / 60 / 24)} days ago`;
     } else {
-      return `${Math.floor(date / 60 / 24 / 365)} years ago`;
+      return `${Math.floor(min / 60 / 24 / 365)} years ago`;
     }
   }
 
+// --- Displays error message for incorrect input, sends new tweet to database, retreives it and appends to tweet list
+
   $(function() {
-    var $button = $('.new-tweet input');
+    const $button = $('.new-tweet input');
     $button.on('click', function () {
       event.preventDefault();
       $(this).parent().siblings('.error').hide(500);
       if ($(this).siblings('.counter').text() == 140) {
-        $(this).parent().siblings('.error').text("Cannot submit empty tweet")
+        $(this).parent().siblings('.error').text("Cannot submit empty tweet");
         $(this).parent().siblings('.error').show(500);
       } else if ($(this).siblings('.counter').text() < 0) {
-        $(this).parent().siblings('.error').text("Message is too long!")
+        $(this).parent().siblings('.error').text("Message is too long!");
         $(this).parent().siblings('.error').show(500);
       } else {
         $.ajax({
@@ -51,6 +55,8 @@ $(document).ready(function() {
     });
   });
 
+// --- Makes compose button open and focus new tweet form
+
   $(function() {
     var $compose = $('#nav-bar .composer');
       $compose.on('click', function () {
@@ -59,10 +65,11 @@ $(document).ready(function() {
       });
   });
 
+// --- Functions for creation of new tweets
+
   const loadTweets = function (last) {
     if (last === 'n') {
       $.getJSON('/tweets/new', function(data) {
-        console.log(data);
         $('section.old-tweet').prepend(createTweetElement(data[0]));
       });
     } else {
@@ -71,7 +78,6 @@ $(document).ready(function() {
       });
     }
   }
-
 
   const createTweetElement = function (data) {
     let currentDate = new Date().getTime();
@@ -99,6 +105,8 @@ $(document).ready(function() {
       $('.old-tweet').append(createTweetElement(element));
     });
   }
+
+// --- Initial load of tweets
 
 loadTweets();
 
