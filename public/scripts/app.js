@@ -29,7 +29,7 @@ $(document).ready(function() {
         type : "POST",
         url : "/tweets/",
         data : $('#newTweet').serialize()
-      })
+      });
       .complete(function() {
         $('#newTweet').trigger("reset");
         loadTweets('n');
@@ -43,8 +43,8 @@ $(document).ready(function() {
       $compose.on('click', function () {
         $('.new-tweet').slideToggle('fast');
         $('.new-tweet textarea').focus();
-      })
-  })
+      });
+  });
 
   const loadTweets = function (last) {
     if (last === 'n') {
@@ -78,7 +78,12 @@ $(document).ready(function() {
           <span class="handle">${data.user.handle}</span>
         </header>
           <span class="contents"> ${escape(data.content.text)}</span>
-        <footer class="age"> ${yearChanger(daysPast)} </footer>
+        <footer>
+          <span class="age"> ${yearChanger(daysPast)} </span>
+          <button class="flag">🏴</button>
+          <button class="reTweet">🔄</button>
+          <button class="likes">❤️</button>
+        </footer>
       </article>`;
     return $test;
   }
