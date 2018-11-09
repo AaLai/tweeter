@@ -1,41 +1,41 @@
 .new-tweet {
-    background-color : lightgrey;
-    margin : 0 2em 20px;
-    padding : 5px 10px;
-    border-radius : 10px;
-    overflow: overlay;
-    float: center;
-    display : none;
+  background-color : lightgrey;
+  margin : 0 2em 20px;
+  padding : 5px 10px;
+  border-radius : 10px;
+  overflow: overlay;
+  float: center;
+  display : none;
 }
 
 .new-tweet input {
-    display : inline-block;
-    float : left;
+  display : inline-block;
+  float : left;
 }
 
 .new-tweet h2 {
-    border-bottom: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .new-tweet .counter {
-    display : inline-block;
-    float : right;
+  display : inline-block;
+  float : right;
 }
 
 .new-tweet textarea {
-    width: 100%
+  width: 100%
 }
 
 .new-tweet .red {
-    color: red;
+  color: red;
 }
 
 .new-tweet .error {
-    background-color : firebrick;
-    color : white;
-    font-size : 1.3rem;
-    padding-left : 10px;
-    padding-right : 10px;
-    margin-left : 10px;
-    display : none;
+  background-color : firebrick;
+  color : white;
+  font-size : 1.3rem;
+  padding-left : 10px;
+  padding-right : 10px;
+  margin-left : 10px;
+  display : none;
 }

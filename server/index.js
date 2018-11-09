@@ -29,14 +29,14 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
 //
 // Because it exports a function that expects the `db` as a parameter, we can
 // require it and pass the `db` parameter immediately:
-const DataHelpers = require("./lib/data-helpers.js")(db);
+  const DataHelpers = require("./lib/data-helpers.js")(db);
 
 // The `tweets-routes` module works similarly: we pass it the `DataHelpers` object
 // so it can define routes that use it to interact with the data layer.
-const tweetsRoutes = require("./routes/tweets")(DataHelpers);
+  const tweetsRoutes = require("./routes/tweets")(DataHelpers);
 
 // Mount the tweets routes at the "/tweets" path prefix:
-app.use("/tweets", tweetsRoutes);
+  app.use("/tweets", tweetsRoutes);
   }
 });
 

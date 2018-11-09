@@ -1,68 +1,68 @@
 .old-tweet .tweet{
-    margin : 2rem ;
-    border: 1px solid grey;
-    border-radius : 10px;
-    opacity : 0.5;
-    background-color: aliceblue;
+  margin : 2rem ;
+  border: 1px solid grey;
+  border-radius : 10px;
+  opacity : 0.5;
+  background-color: aliceblue;
 }
 
 .old-tweet .tweet:hover {
-    margin : 2rem ;
-    border: 1px solid grey;
-    border-radius : 10px;
-    opacity : 1;
-    background-color: aliceblue;
+  margin : 2rem ;
+  border: 1px solid grey;
+  border-radius : 10px;
+  opacity : 1;
+  background-color: aliceblue;
 }
 
 .old-tweet header {
-    background-color: powderblue;
-    width : 100%;
-    overflow : auto;
-    padding : 10px;
-    border-top-right-radius : inherit;
-    border-top-left-radius : inherit;
+  background-color: powderblue;
+  width : 100%;
+  overflow : auto;
+  padding : 10px;
+  border-top-right-radius : inherit;
+  border-top-left-radius : inherit;
 }
 
 .old-tweet h2 {
-    margin : 0;
-    padding-left : 10px;
-    float : left;
+  margin : 0;
+  padding-left : 10px;
+  float : left;
 }
 
 .old-tweet .handle {
-    float : right;
-    padding-top : 15px;
+  float : right;
+  padding-top : 15px;
 }
 
 .old-tweet img {
-    width: 70px;
-    height: 70px;
-    float : left;
+  width: 70px;
+  height: 70px;
+  float : left;
 }
 
 .old-tweet .contents {
-    width : 100%;
-    padding : 20px 10px;
-    border-bottom : 1px solid grey;
-    display : block;
-    overflow-wrap : break-word;
+  width : 100%;
+  padding : 20px 10px;
+  border-bottom : 1px solid grey;
+  display : block;
+  overflow-wrap : break-word;
 }
 
 .old-tweet footer {
-    padding : 5px 10px 10px 10px ;
-    display : block;
+  padding : 5px 10px 10px 10px ;
+  display : block;
 }
 
 .old-tweet button {
-    display : none;
-    float: right;
-    background: none;
+  display : none;
+  float: right;
+  background: none;
 }
 
 .old-tweet .tweet:hover button {
-    display : block;
-    float: right;
-    border: none;
-    background: none;
+  display : block;
+  float: right;
+  border: none;
+  background: none;
 }
 
