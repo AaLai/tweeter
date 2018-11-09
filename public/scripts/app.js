@@ -9,7 +9,7 @@ $(document).ready(function() {
     var div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
-  }
+  };
 
   $(function() {
     var $button = $('.new-tweet input');
@@ -21,7 +21,7 @@ $(document).ready(function() {
         $(this).parent().siblings('.error').show(500);
       } else if ($(this).siblings('.counter').text() < 0) {
         $(this).parent().siblings('.error').text("Message is too long!")
-        $(this).parent().siblings('.error').show(500)
+        $(this).parent().siblings('.error').show(500);
       } else {
       // console.log($('#newTweet'));
       // console.log('Button clicked, performing ajax call...');
@@ -30,14 +30,13 @@ $(document).ready(function() {
         url : "/tweets/",
         data : $('#newTweet').serialize()
       })
-      .then(function (getTweet) {
-        $('#newtweet').trigger("reset");
-        loadTweets('y');
-      })
-      // });
+      .complete(function() {
+        $('#newTweet').trigger("reset");
+        loadTweets('n');
+      });
     }
-    });
   });
+});
 
   $(function() {
     var $compose = $('#nav-bar .composer');
@@ -48,14 +47,18 @@ $(document).ready(function() {
   })
 
   const loadTweets = function (last) {
-    $.getJSON('/tweets/', function(data) {
-      if (last === 'y') {
+    if (last === 'n') {
+      $.getJSON('/tweets/new', function(data) {
+        console.log(data);
         $('section.old-tweet').prepend(createTweetElement(data[0]));
-      } else {
+      });
+    } else {
+      $.getJSON('/tweets/', function(data) {
         $('section.old-tweet').append(renderTweet(data));
-      }
-    })
+      });
+    }
   }
+
 
   const createTweetElement = function (data) {
     let currentDate = new Date().getTime();

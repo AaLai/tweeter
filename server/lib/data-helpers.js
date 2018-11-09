@@ -26,7 +26,7 @@ module.exports = function makeDataHelpers(db) {
 
     // will eventually modify this one to retrieve the user's latest tweet
     getLatestTweet: function(callback) {
-      db.collection('tweeter').find().sort({created_at : -1})
+      db.collection('tweeter').find().sort({created_at : -1}).limit(1).toArray(callback);
     }
 
   };
