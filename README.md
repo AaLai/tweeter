@@ -6,8 +6,8 @@ A simple single-page AJAX based Twitter clone that uses jQuery, HTML 5 and CSS. 
 ## Final Product ver 1.0.0
 - This is still a work in progress, base functionality is there but missing additional features
 
-!["Screenshot of URLs edit page"](https://github.com/AaLai/TinyApp-Project/blob/master/docs/Edit-URL.png?raw=true)
-!["Screenshot of URLs home page"](https://github.com/AaLai/TinyApp-Project/blob/master/docs/Homepage.png?raw=true)
+!["New Tweet form with an error"](https://github.com/AaLai/tweeter/blob/master/public/images/NewTweet.png?raw=true)
+!["List of old tweets with one hovered on"](https://github.com/AaLai/tweeter/blob/master/public/images/TweetDisplay.png?raw=true)
 
 ## Dependencies
 
