@@ -31,6 +31,7 @@ $(document).ready(function() {
         data : $('#newTweet').serialize()
       })
       .then(function (getTweet) {
+        $('#newtweet').trigger("reset");
         loadTweets('y');
       })
       // });
@@ -49,7 +50,7 @@ $(document).ready(function() {
   const loadTweets = function (last) {
     $.getJSON('/tweets/', function(data) {
       if (last === 'y') {
-        $('section.old-tweet').prepend(createTweetElement(data[data.length-1]));
+        $('section.old-tweet').prepend(createTweetElement(data[0]));
       } else {
         $('section.old-tweet').append(renderTweet(data));
       }
